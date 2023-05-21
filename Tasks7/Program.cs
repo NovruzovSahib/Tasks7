@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualBasic;
 using System.Collections.Generic;
+using System.Globalization;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 internal class Program
@@ -22,7 +23,9 @@ internal class Program
         Task14();
         Task15();
         Task16();
+        Task17();
         Task18();
+        Task19();
         Task20();
         Task21();
         Task22();
@@ -252,6 +255,21 @@ internal class Program
             }
         }
     }
+    public static void Task17()
+    {
+        string str1 = "this is original string";
+        string str2 = str1.Substring(10, 4);
+        int count = 0;
+        for (int i = 0; i < str1.Length; i++)
+        {
+            if (str1.Contains(str2))
+            {
+                count++;
+                break;
+            }
+        }
+        Console.WriteLine($"The string occurs {count} times");
+    }
     public static void Task18()
     {
         Console.Write("Enter original string: ");
@@ -266,6 +284,21 @@ internal class Program
         str1 = str1.Insert(index, str3);
         Console.WriteLine("Modifies string is: " + str1);
 
+    }
+    public static void Task19()
+    {
+        string name1 = "John Peterson";
+        string name2 = "Michel Jhonson";
+        int index1 = name1.IndexOf(" ");
+        index1 = index1 < 0 ? 0 : index1--;
+        int index2 = name2.IndexOf(" ");
+        index2 = index2 < 0 ? 0 : index2--;
+        int length = Math.Max(name1.Length, name2.Length);
+        Console.WriteLine("Sorted alphabetically by last name:");
+        if (string.Compare(name1, index1, name2, index2, length) < 0)
+            Console.WriteLine("{0}\n{1}", name1, name2);
+        else
+            Console.WriteLine("{0}\n{1}", name2, name1);
     }
     public static void Task20()
     {
